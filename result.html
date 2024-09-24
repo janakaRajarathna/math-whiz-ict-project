@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math is Fun - Your Score</title>
+    <style>
+        :root {
+                    /* --primary-color: #f9fafa;
+                    --neutral-color: #ef5517;
+                    --accent-color:  #222319; */
+
+                    --primary-color: #eef5f4;
+                    --neutral-color: #1b4272;
+                    --accent-color: #d9206a;
+
+                    /* --primary-color: #fdfffd;
+                    --neutral-color: #5d5d8d;
+                    --accent-color:  #3e77fc; */
+        } 
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--primary-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: var(--neutral-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s;
+        }
+        nav a:nth-child(1) { background-color: var(--accent-color); }
+        nav a:nth-child(2) { background-color: var(--accent-color); }
+        nav a:nth-child(3) { background-color: var(--accent-color); }
+        nav a:hover { opacity: 0.8; }
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .score-container {
+            text-align: center;
+            background-color: var(--neutral-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: #e1e8f1;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .button:hover {
+            background-color: #f3f4f6;
+            transform: scale(1.05);
+            color: black;
+        }
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                margin-top: 1rem;
+            }
+            nav a {
+                margin: 0.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .score-container {
+                padding: 1.5rem;
+            }
+            .button-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .button {
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Maths Whiz</h1>
+        <nav>
+            <a href="home 1.html">Home</a>
+            <a href="score.html">score</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+    <main>
+        <div class="score-container">
+            <h2>You scored 2</h2>
+            <p>Great job! You're a true expert. Keep up the good work.</p>
+            <div class="button-container">
+                <button class="button">Retake Quiz</button>
+                <button class="button">Home</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math is Fun - History</title>
+    <style>
+        :root {
+            /* --primary-color: #f9fafa;
+                    --neutral-color: #ef5517;
+                    --accent-color:  #222319; */
+
+            --primary-color: #eef5f4;
+            --neutral-color: #1b4272;
+            --accent-color: #d9206a;
+
+            /* --primary-color: #fdfffd;
+                    --neutral-color: #5d5d8d;
+                    --accent-color:  #3e77fc; */
+        }
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--primary-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--neutral-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:nth-child(1) {
+            background-color: var(--accent-color);
+        }
+
+        nav a:nth-child(2) {
+            background-color: var(--accent-color);
+        }
+
+        nav a:nth-child(3) {
+            background-color: var(--accent-color);
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            padding: 2rem;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main .card{
+            width: 100%;
+        }
+        h2 {
+            margin: 0 0 1rem 0;
+            color: #4b5563;
+        }
+
+        .time-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .time-option {
+            background-color: #e5e7eb;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .time-option:hover,
+        .time-option.active {
+            background-color: #6d9ce3;
+            color: white;
+            font-weight: bolder ;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            overflow-x: auto;
+
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: var(--neutral-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            nav a {
+                margin: 0.5rem;
+            }
+
+            .time-options {
+                flex-direction: column;
+            }
+
+            .time-option {
+                margin-bottom: 0.5rem;
+            }
+
+            table {
+
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            main{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            main .card{
+                width: 80;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Maths whiz</h1>
+        <nav>
+            <a href="home 1.html">Home</a>
+            <a href="score.html">score</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Highest Score (Time Mode)</h2>
+            <div class="time-options">
+                <button class="time-option active">20 sec</button>
+                <button class="time-option">30 sec</button>
+                <button class="time-option">60 sec</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Attempt Date</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>janaka</td>
+                        <td>2024-05-19 00:07:55</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:06:37</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:08:01</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Highest Score (Question Mode)</h2>
+            <div class="time-options">
+                <button class="time-option active">20 sec</button>
+                <button class="time-option">30 sec</button>
+                <button class="time-option">60 sec</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Attempt Date</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>janaka</td>
+                        <td>2024-05-19 00:07:55</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:06:37</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:08:01</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
