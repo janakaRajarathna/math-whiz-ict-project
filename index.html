@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths Whiz</title>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="confetti.browser.min.js" ></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
@@ -19,8 +21,6 @@
 
 
     <style>
-
-
         :root {
             /* Default Theme */
             --primary-color: #f9fafa;
@@ -137,7 +137,8 @@
             padding: 15px;
             font-size: 18px;
             color: white;
-            background-color: #007bff; /* Blue button */
+            background-color: #007bff;
+            /* Blue button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -235,6 +236,71 @@
             background-color: #2563eb;
             transform: scale(1.05);
         }
+
+        .hidden{
+            display: none;
+        }
+
+        /* result container styles */
+
+        .score-container {
+            text-align: center;
+            background-color: var(--neutral-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+       #resultSection  h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        #resultSection p {
+            color: #e1e8f1;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        #resultSection .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        #resultSection .button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+       #resultSection  .button:hover {
+            background-color: #f3f4f6;
+            transform: scale(1.05);
+            color: black;
+        }
+        @media (max-width: 640px) {
+            
+            h2 {
+                font-size: 2rem;
+            }
+            .score-container {
+                padding: 1.5rem;
+            }
+            .button-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .button {
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -243,7 +309,7 @@
         <h1>Maths Whiz</h1>
         <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         <nav class="nav-links">
-            <a href="home 1.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="score.html">score</a>
             <a href="settings.html">Settings</a>
         </nav>
@@ -251,7 +317,7 @@
     </header>
 
     <main>
-        <div  id="modeSelectionCard" class="card" >
+        <div id="modeSelectionCard" class="card">
             <h2>Select Game Mode</h2>
             <div class="game-mode">
                 <button id="timeModeBtn">Time Mode</button>
@@ -262,54 +328,72 @@
             </div>
         </div>
 
-        <div id="timeModeOptions" class="card" >
-            <h2>Select  Time</h2>
+        <div id="timeModeOptions" class="card hidden">
+            <h2>Select Time</h2>
             <div class="mode-options">
                 <div class="game-mode">
                     <button class="time-option">20 sec</button>
                 </div>
-                
-                <div  class="game-mode">
+
+                <div class="game-mode">
                     <button class="time-option">30 sec</button>
                 </div>
-                <div  class="game-mode">
+                <div class="game-mode">
                     <button class="time-option">60 sec</button>
                 </div>
             </div>
         </div>
-        
 
-        <div  id="questionModeOptions" class="card" >
+
+        <div id="questionModeOptions" class="card hidden">
             <h2>Number Of Questions</h2>
             <div class="mode-options">
-               
-                    <div class="game-mode">
-                        <button class="question-option">10<br>questions</button>
-                    </div>
+
+                <div class="game-mode">
+                    <button class="question-option">10<br>questions</button>
+                </div>
+
+                <div class="game-mode">
+                    <button class="question-option">20<br>questions</button>
+                </div>
+                <div class="game-mode">
+                    <button class="question-option">30<br>questions</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="qiuzSection" class="hidden">
+            
+            <div class="Qcard " id="QCARD" >
+                <div class="question">3 + 3</div>
+                <div class="options" id="options-container">
                     
-                    <div  class="game-mode">
-                        <button class="question-option">20<br>questions</button>
-                    </div>
-                    <div  class="game-mode">
-                        <button class="question-option">30<br>questions</button>
-                    </div>
+                </div>
                 
             </div>
+    
+            <div id="next-btn-container" >
+                <button class="next-button " id="nextQuizBtn">Next</button>
+    
+            </div>
         </div>
 
-        <div class="Qcard" id="QCARD" style="display: none;">
-            <div class="question">3 + 3</div>
-            <div class="options">
-                <button>6</button>
-                <button>3</button>
-                <button>9</button>
-                <button>7</button>
+
+        <div class="score-container hidden" id="resultSection">
+            <h2 id="resultHeader">You scored 2</h2>
+            <p id="resultMessage">Great job! You're a true expert. Keep up the good work.</p>
+            <!-- add vector image -->
+            <div class="button-container">
+                <button class="button">Retake Quiz</button>
+                <button class="button">Home</button>
             </div>
-            <button class="next-button">Next</button>
         </div>
+
+        
 
     </main>
-    
+
     <script>
         // Toggle the mobile menu
         function toggleMenu() {
@@ -337,50 +421,60 @@
             }
         }
 
-       
 
 
-         // Get buttons and divs for Time and Question modes
+
+        // Get buttons and divs for Time and Question modes
         const timeModeBtn = document.getElementById('timeModeBtn');
         const questionModeBtn = document.getElementById('questionModeBtn');
         const timeModeOptions = document.getElementById('timeModeOptions');
         const questionModeOptions = document.getElementById('questionModeOptions');
-        const modeSelectionCard =document.getElementById('modeSelectionCard');
-        const  TimeOptionBtns= document.querySelectorAll(".time-option");
-        const  QuizOptionBtns= document.querySelectorAll(".question-option");
-        const QCARD =document.getElementById('QCARD');
+        const modeSelectionCard = document.getElementById('modeSelectionCard');
+        const TimeOptionBtns = document.querySelectorAll(".time-option");
+        const QuizOptionBtns = document.querySelectorAll(".question-option");
+        const QCARD = document.getElementById('QCARD');
 
 
-        // Hide both option sections initially
-        timeModeOptions.style.display = 'none';
-        questionModeOptions.style.display = 'none';
+       
 
         // Event listener for Time Mode button
-        timeModeBtn.addEventListener('click', () => {
-            timeModeOptions.style.display = 'block';  // Show time options
-            questionModeOptions.style.display = 'none';  // Hide question options
-            modeSelectionCard.style.display = 'none';
-        });
+        // timeModeBtn.addEventListener('click', () => {
+        //     timeModeOptions.style.display = 'block';  
+        //     questionModeOptions.style.display = 'none'; 
+        //     modeSelectionCard.style.display = 'none';
+        // });
 
         // Event listener for Question Mode button
-        questionModeBtn.addEventListener('click', () => {
-            questionModeOptions.style.display = 'block';  // Show question options
-            timeModeOptions.style.display = 'none';  // Hide time options
-            modeSelectionCard.style.display = 'none';
-        });
-        
+        // questionModeBtn.addEventListener('click', () => {
+        //     questionModeOptions.style.display = 'block';  // Show question options
+        //     timeModeOptions.style.display = 'none';  // Hide time options
+        //     modeSelectionCard.style.display = 'none';
+        // });
 
-        TimeOptionBtns.addEventListener('click', () => {
-            QCARD.style.display ='block'
-            timeModeOptions.style.display ='none'
+
+        [...TimeOptionBtns].map(timeOptionBtn => {
+
+
+            timeOptionBtn.addEventListener('click', () => {
+                QCARD.style.display = 'block'
+                timeModeOptions.style.display = 'none'
+            })
+
         });
 
-        QuizOptionBtns.addEventListener('click', () => {
-            QCARD.style.display ='block'
-            questionModeOptions.style.display ='none'
+        // QuizOptionBtns.addEventListener('click', () => {
+        //     QCARD.style.display = 'block'
+        //     questionModeOptions.style.display = 'none'
 
-        });
+        // });
 
     </script>
+
+    <script src="index.js"></script>
+
+    <audio id="failSoundClip" src="fail.mp3"></audio>
+<audio id="passSoundClip" src="pass.mp3"></audio>
+<audio id="tadaSoundClip" src="tada.mp3"></audio>
 </body>
+
 </html>

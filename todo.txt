@@ -1,0 +1,4 @@
+create score cards
+impliment setting page features 
+make all pages mobile responsive
+show animations in result page
