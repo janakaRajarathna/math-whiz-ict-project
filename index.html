@@ -18,7 +18,7 @@
             }
         });
 
-        toggleTheme()
+        
     </script>
 
 
@@ -27,21 +27,32 @@
     <style>
         :root {
             /* Default Theme */
-            --primary-color: #f9fafa;
-            --neutral-color: #ef5517;
-            --accent-color: #222319;
-        }
-
-        body.dark-theme {
-            --primary-color: #1e1e1e;
-            --neutral-color: #333333;
-            --accent-color: #ff9505;
-        }
-
-        body.light-theme {
             --primary-color: #eef5f4;
             --neutral-color: #1b4272;
             --accent-color: #d9206a;
+
+            
+        }
+
+        body.dark-theme {
+            /* --primary-color: #1e1e1e;
+            --neutral-color: #333333;
+            --accent-color: #ff9505; */
+
+            --primary-color: #eef5f4;
+            --neutral-color: #1b4272;
+            --accent-color: #d9206a;
+        }
+
+        body.light-theme {
+
+            --primary-color: #eef5f4;
+            --neutral-color: #1b4272;
+            --accent-color: #d9206a;
+
+            /* --primary-color: #f9fafa;
+            --neutral-color: #ef5517;
+            --accent-color: #222319; */
         }
 
         body {
@@ -335,20 +346,16 @@
 
         .wrong-icon-parent-container {
             font-size: 0.875rem;
-            /* Small text size equivalent to text-sm */
+           
             color: #6b7280;
-            /* Gray shade equivalent to text-gray-500 */
-            margin-left: auto;
-            /* Automatically pushes the element to the right */
             
+            margin-left: auto;
+           
         }
         .correct-icon-parent-container{
             font-size: 0.875rem;
-            /* Small text size equivalent to text-sm */
             color: #6b7280;
-            /* Gray shade equivalent to text-gray-500 */
             margin-left: auto;
-            /* Automatically pushes the element to the right */
         }
 
         .text-white {
@@ -363,6 +370,8 @@
 </head>
 
 <body>
+
+   
     <header>
         <h1>Maths Whiz</h1>
         <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
@@ -373,8 +382,11 @@
         </nav>
         <!-- <button class="theme-btn" onclick="toggleTheme()">Switch Theme</button> -->
     </header>
+   
+    
 
     <main>
+        
         <div id="modeSelectionCard" class="card">
             <h2>Select Game Mode</h2>
             <div class="game-mode">
@@ -453,7 +465,8 @@
     </main>
 
     <script>
-       
+        toggleTheme()
+        
 
         // Toggle the mobile menu
         function toggleMenu() {
@@ -492,10 +505,8 @@
         const modeSelectionCard = document.getElementById('modeSelectionCard');
         const TimeOptionBtns = document.querySelectorAll(".time-option");
         const QuizOptionBtns = document.querySelectorAll(".question-option");
+
         const QCARD = document.getElementById('QCARD');
-
-
-
 
         
 
