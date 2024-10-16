@@ -17,6 +17,8 @@
                 document.body.classList.add('light-theme');
             }
         });
+
+        toggleTheme()
     </script>
 
 
@@ -451,6 +453,8 @@
     </main>
 
     <script>
+       
+
         // Toggle the mobile menu
         function toggleMenu() {
             var nav = document.querySelector('.nav-links');
@@ -493,20 +497,7 @@
 
 
 
-        // Event listener for Time Mode button
-        // timeModeBtn.addEventListener('click', () => {
-        //     timeModeOptions.style.display = 'block';  
-        //     questionModeOptions.style.display = 'none'; 
-        //     modeSelectionCard.style.display = 'none';
-        // });
-
-        // Event listener for Question Mode button
-        // questionModeBtn.addEventListener('click', () => {
-        //     questionModeOptions.style.display = 'block';  // Show question options
-        //     timeModeOptions.style.display = 'none';  // Hide time options
-        //     modeSelectionCard.style.display = 'none';
-        // });
-
+        
 
         [...TimeOptionBtns].map(timeOptionBtn => {
 
@@ -518,12 +509,7 @@
 
         });
 
-        // QuizOptionBtns.addEventListener('click', () => {
-        //     QCARD.style.display = 'block'
-        //     questionModeOptions.style.display = 'none'
-
-        // });
-
+       
     </script>
 
     <script src="index.js"></script>
