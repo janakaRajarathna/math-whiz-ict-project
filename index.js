@@ -183,7 +183,7 @@ function getWrongIcon() {
 function getCorrectIcon() {
 
 
-	return `<span class="text-sm text-gray-500 ml-auto"></span>
+	return `<span class="correct-icon-parent-container"></span>
                     <span class="correct-icon-container">
                     	<svg xmlns="http://www.w3.org/2000/svg" width="16"
 							height="16" viewBox="0 0 24 24" fill="none"
