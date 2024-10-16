@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths Whiz</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="confetti.browser.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="confetti.browser.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
@@ -17,6 +18,7 @@
             }
         });
     </script>
+
 
 
 
@@ -237,7 +239,7 @@
             transform: scale(1.05);
         }
 
-        .hidden{
+        .hidden {
             display: none;
         }
 
@@ -253,21 +255,24 @@
             width: 100%;
         }
 
-       #resultSection  h2 {
+        #resultSection h2 {
             font-size: 1.8rem;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
+
         #resultSection p {
             color: #e1e8f1;
             margin-bottom: 2rem;
             font-size: 1rem;
         }
+
         #resultSection .button-container {
             display: flex;
             gap: 1rem;
             justify-content: center;
         }
+
         #resultSection .button {
             background-color: var(--accent-color);
             color: var(--primary-color);
@@ -278,28 +283,67 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.1s;
         }
-       #resultSection  .button:hover {
+
+        #resultSection .button:hover {
             background-color: #f3f4f6;
             transform: scale(1.05);
             color: black;
         }
+
         @media (max-width: 640px) {
-            
+
             h2 {
                 font-size: 2rem;
             }
+
             .score-container {
                 padding: 1.5rem;
             }
+
             .button-container {
                 flex-direction: column;
                 gap: 0.5rem;
             }
+
             .button {
                 padding: 0.75rem 1rem;
                 font-size: 1rem;
                 width: 100%;
             }
+        }
+
+        .correct-icon-container {
+            background-color: #05af38;
+            border-radius: 9999px;
+            margin-right: 0.25rem;
+            padding: 0.25rem;
+
+        }
+
+        .wrong-icon-container {
+            background-color: #ef4444;
+            border-radius: 9999px;
+            margin-right: 0.25rem;
+            padding: 0.25rem;
+
+        }
+
+        .wrong-icon-parent-container {
+            font-size: 0.875rem;
+            /* Small text size equivalent to text-sm */
+            color: #6b7280;
+            /* Gray shade equivalent to text-gray-500 */
+            margin-left: auto;
+            /* Automatically pushes the element to the right */
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .disabled-wrong-answers {
+            opacity: 0.5;
+            color: #374151;
         }
     </style>
 </head>
@@ -364,18 +408,18 @@
         </div>
 
         <div id="qiuzSection" class="hidden">
-            
-            <div class="Qcard " id="QCARD" >
+
+            <div class="Qcard " id="QCARD">
                 <div class="question">3 + 3</div>
                 <div class="options" id="options-container">
-                    
+
                 </div>
-                
+
             </div>
-    
-            <div id="next-btn-container" >
+
+            <div id="next-btn-container">
                 <button class="next-button " id="nextQuizBtn">Next</button>
-    
+
             </div>
         </div>
 
@@ -390,7 +434,7 @@
             </div>
         </div>
 
-        
+
 
     </main>
 
@@ -404,7 +448,7 @@
         // Function to toggle between themes
         function toggleTheme() {
             // Check if a theme is already set
-            const currentTheme = localStorage.getItem('theme') || 'default';
+            const currentTheme = localStorage.getItem('theme') || 'light';
 
             // Toggle between themes
             if (currentTheme === 'default') {
@@ -435,7 +479,7 @@
         const QCARD = document.getElementById('QCARD');
 
 
-       
+
 
         // Event listener for Time Mode button
         // timeModeBtn.addEventListener('click', () => {
@@ -473,8 +517,8 @@
     <script src="index.js"></script>
 
     <audio id="failSoundClip" src="fail.mp3"></audio>
-<audio id="passSoundClip" src="pass.mp3"></audio>
-<audio id="tadaSoundClip" src="tada.mp3"></audio>
+    <audio id="passSoundClip" src="pass.mp3"></audio>
+    <audio id="tadaSoundClip" src="tada.mp3"></audio>
 </body>
 
 </html>
