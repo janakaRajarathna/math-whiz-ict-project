@@ -5,22 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math is Fun - History</title>
+    <link rel="stylesheet" href="mainCss.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="confetti.browser.min.js"></script>
+    
+
     <style>
-        :root {
-            /* --primary-color: #f9fafa;
-                    --neutral-color: #ef5517;
-                    --accent-color:  #222319; */
+
+        /* :root {
 
             --primary-color: #eef5f4;
             --neutral-color: #1b4272;
             --accent-color: #d9206a;
 
-            /* --primary-color: #fdfffd;
-                    --neutral-color: #5d5d8d;
-                    --accent-color:  #3e77fc; */
         }
-
-
 
 
         body {
@@ -75,7 +74,7 @@
         main {
             flex-grow: 1;
             padding: 2rem;
-        }
+        } */
 
         .card {
             width: 400px;
@@ -282,7 +281,7 @@
         </div>
 
         <!-- <div class="settings-toggle">
-           
+            
             <span>Theme</span>
             <label class="switch">
                 <input type="checkbox" id="themeToggle">
@@ -296,7 +295,7 @@
             <select id="themeDropdown">
                 <option value="light">Light Theme</option>
                 <option value="dark">Dark Theme</option>
-                <option value="blue">Default Theme</option>
+                <option value="default">Default Theme</option>
             </select>
         </div>
 
@@ -317,11 +316,11 @@
         <h2>Add Player</h2>
         <label for="playerName">Player Name</label>
         <input type="text" id="playerName">
-        <button>Add</button>
+        <button id="add-player-btn">Add</button>
 
         <br>
 
-            <table>
+            <table id="player-table">
                 <thead>
                     <tr>
                         <th>Player</th>
@@ -363,15 +362,16 @@
             console.log('Sound is ' + (soundToggle.checked ? 'On' : 'Off'));
         });
 
-        themeToggle.addEventListener('change', function () {
-            console.log('Theme is ' + (themeToggle.checked ? 'Dark' : 'Light'));
-        });
+        // themeToggle.addEventListener('change', function () {
+        //     console.log('Theme is ' + (themeToggle.checked ? 'Dark' : 'Light'));
+        // });
 
         notificationsToggle.addEventListener('change', function () {
             console.log('Notifications are ' + (notificationsToggle.checked ? 'Enabled' : 'Disabled'));
         });
 
     </script>
+    <script src="setting.js"></script>
 </body>
 
 </html>

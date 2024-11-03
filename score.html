@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math is Fun - History</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- <script src="setting.js"></script> -->
+    <link rel="stylesheet" href="mainCss.css">
+    <script>
+         const currentTheme = localStorage.getItem('theme') || 'default';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    </script>
     <style>
-        :root {
-            /* --primary-color: #f9fafa;
-                    --neutral-color: #ef5517;
-                    --accent-color:  #222319; */
+        /* :root {
 
             --primary-color: #eef5f4;
             --neutral-color: #1b4272;
             --accent-color: #d9206a;
 
-            /* --primary-color: #fdfffd;
-                    --neutral-color: #5d5d8d;
-                    --accent-color:  #3e77fc; */
+         
         }
 
 
@@ -76,7 +79,7 @@
             padding: 2rem;
             display: flex;
             gap: 10px;
-        }
+        } */
         
         .card {
             background-color: white;
@@ -198,12 +201,12 @@
     <main>
         <div class="card">
             <h2>Highest Score (Time Mode)</h2>
-            <div class="time-options">
+            <div class="time-options" id="time-sub-option">
                 <button class="time-option active">20 sec</button>
                 <button class="time-option">30 sec</button>
                 <button class="time-option">60 sec</button>
             </div>
-            <table>
+            <table id="highest-score-table">
                 <thead>
                     <tr>
                         <th>Player</th>
@@ -233,12 +236,13 @@
 
         <div class="card">
             <h2>Highest Score (Question Mode)</h2>
-            <div class="time-options">
+            <div class="time-options" id="question-sub-option" >
                 <button class="time-option active">20 sec</button>
                 <button class="time-option">30 sec</button>
                 <button class="time-option">60 sec</button>
             </div>
-            <table>
+
+            <table >
                 <thead>
                     <tr>
                         <th>Player</th>
@@ -266,6 +270,9 @@
             </table>
         </div>
     </main>
+    
+
+    <script src="score.js"></script>
 </body>
 
 </html>

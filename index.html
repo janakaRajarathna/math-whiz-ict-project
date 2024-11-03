@@ -4,55 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Maths Whiz</title>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="confetti.browser.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-            } else if (savedTheme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        });
 
 
-    </script>
+    
 
-
+    <link rel="stylesheet" href="mainCss.css">
 
 
     <style>
-        :root {
-            /* Default Theme */
-            --primary-color: #eef5f4;
+        /* :root {
+              --primary-color: #eef5f4; 
             --neutral-color: #1b4272;
-            --accent-color: #d9206a;
-
+            --accent-color: #d9206a; 
 
         }
 
         body.dark-theme {
-            /* --primary-color: #1e1e1e;
-            --neutral-color: #333333;
-            --accent-color: #ff9505; */
-
             --primary-color: #eef5f4;
             --neutral-color: #1b4272;
             --accent-color: #d9206a;
         }
 
         body.light-theme {
-
             --primary-color: #eef5f4;
             --neutral-color: #1b4272;
             --accent-color: #d9206a;
-
-            /* --primary-color: #f9fafa;
-            --neutral-color: #ef5517;
-            --accent-color: #222319; */
         }
 
         body {
@@ -60,7 +43,6 @@
             margin: 0;
             padding: 0;
             background-color: var(--primary-color);
-            /* color: var(--neutral-color); */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -100,16 +82,17 @@
             opacity: 0.8;
         }
 
-        /* Hide the navigation menu by default for mobile */
-        .menu-icon {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
         .nav-links {
             display: flex;
         }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        } */
 
 
         .Qcard {
@@ -155,6 +138,7 @@
             font-size: 18px;
             color: white;
             background-color: #007bff;
+
             /* Blue button */
             border: none;
             border-radius: 5px;
@@ -191,13 +175,7 @@
             }
         }
 
-        main {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
+        
 
         .card {
             background-color: var(--neutral-color);
@@ -332,7 +310,7 @@
             border-radius: 9999px;
             margin-right: 0.25rem;
             padding: 0.25rem;
-            font-size: 0px;
+             font-size: 0px;
 
         }
 
@@ -380,7 +358,7 @@
             <a href="score.html">score</a>
             <a href="settings.html">Settings</a>
         </nav>
-        <!-- <button class="theme-btn" onclick="toggleTheme()">Switch Theme</button> -->
+        
     </header>
 
 
@@ -477,21 +455,11 @@
         // Function to toggle between themes
         function toggleTheme() {
             // Check if a theme is already set
-            const currentTheme = localStorage.getItem('theme') || 'light';
+            const currentTheme = localStorage.getItem('theme') || 'default';
 
             // Toggle between themes
-            if (currentTheme === 'default') {
-                document.body.classList.add('dark-theme');
-                document.body.classList.remove('light-theme');
-                localStorage.setItem('theme', 'dark');
-            } else if (currentTheme === 'dark') {
-                document.body.classList.add('light-theme');
-                document.body.classList.remove('dark-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.classList.remove('dark-theme', 'light-theme');
-                localStorage.setItem('theme', 'default');
-            }
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
         }
 
 
