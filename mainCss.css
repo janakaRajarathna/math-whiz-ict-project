@@ -24,26 +24,6 @@
     --accent-color: #d9206a; 
 }
 
-body.dark-theme {
-    /* --primary-color: #1e1e1e;
-    --neutral-color: #333333;
-    --accent-color: #ff9505;
-
-    --primary-color: #eef5f4;
-    --neutral-color: #1b4272;
-    --accent-color: #d9206a; */
-}
-
-body.light-theme {
-
-    /* --primary-color: #eef5f4;
-    --neutral-color: #1b4272;
-    --accent-color: #d9206a;
-
-    --primary-color: #f9fafa;
-    --neutral-color: #ef5517;
-    --accent-color: #222319; */
-}
 
 body {
     font-family: Arial, sans-serif;
@@ -107,4 +87,21 @@ main {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+}
+
+#user-menu-button{
+    color: black;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 2px solid var(--accent-color);
+    transition: background-color 0.3s;
+    background-color: var(--accent-color);
+}
+
+
+#user-menu-button i{ 
+    font-size: 15px;
+    color: #222319;
 }

@@ -9,76 +9,13 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="confetti.browser.min.js"></script>
-    
+
 
     <style>
-
-        /* :root {
-
-            --primary-color: #eef5f4;
-            --neutral-color: #1b4272;
-            --accent-color: #d9206a;
-
-        }
-
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: var(--primary-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: var(--neutral-color);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:nth-child(1) {
-            background-color: var(--accent-color);
-        }
-
-        nav a:nth-child(2) {
-            background-color: var(--accent-color);
-        }
-
-        nav a:nth-child(3) {
-            background-color: var(--accent-color);
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        main {
-            flex-grow: 1;
-            padding: 2rem;
-        } */
-
         .card {
-            width: 400px;
-            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
             background-color: #f8f8f8;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -89,7 +26,7 @@
         /* Title styling */
         .card h2 {
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 22px;
             color: #333;
         }
 
@@ -107,6 +44,9 @@
             display: inline-block;
             width: 50px;
             height: 24px;
+
+            /* width: 40px;
+            height: 20px; */
         }
 
         /* Hide the default checkbox */
@@ -179,7 +119,6 @@
             padding: 10px 20px;
             font-size: 16px;
             background-color: var(--accent-color);
-            /* Green background */
             color: white;
             border: none;
             border-radius: 5px;
@@ -253,6 +192,38 @@
                 width: 100%;
                 overflow-x: auto;
                 white-space: nowrap;
+                margin-top: 0.5rem;
+            }
+
+            .card {
+                width: 80%;
+                /* Full width on very small screens */
+                padding: 10px;
+            }
+
+            .card h2 {
+                font-size: 20px;
+                /* Slightly smaller font */
+            }
+
+            .settings-toggle span {
+                font-size: 13px;
+            }
+
+            .card input[type="text"] {
+                font-size: 13px;
+            }
+
+            .card button {
+                font-size: 13px;
+            }
+
+
+
+            th,
+            td {
+                font-size: 13px;
+                /* Smaller font in table cells */
             }
         }
     </style>
@@ -280,7 +251,7 @@
 
         </div>
 
-       
+
         <div class="settings-toggle">
             <span>Theme</span>
             <select id="themeDropdown">
@@ -290,7 +261,7 @@
             </select>
         </div>
 
-        
+
 
     </div>
 
@@ -302,32 +273,32 @@
 
         <br>
 
-            <table id="player-table">
-                <thead>
-                    <tr>
-                        <th>Player</th>
-                        <th>Attempt Date</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>janaka</td>
-                        <td>2024-05-19 00:07:55</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>GUEST</td>
-                        <td>2024-08-31 23:06:37</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>GUEST</td>
-                        <td>2024-08-31 23:08:01</td>
-                        <td>1</td>
-                    </tr>
-                </tbody>
-            </table>
+        <table id="player-table">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Attempt Date</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>janaka</td>
+                    <td>2024-05-19 00:07:55</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>GUEST</td>
+                    <td>2024-08-31 23:06:37</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>GUEST</td>
+                    <td>2024-08-31 23:08:01</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 

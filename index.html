@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="confetti.browser.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
     
@@ -77,17 +78,17 @@
 
         /* Media query for mobile screens */
         @media (max-width: 640px) {
-            .nav-links {
-                display: none;
+            header {
                 flex-direction: column;
-                width: 100%;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 1rem;
             }
 
             nav a {
-                margin: 0;
-                padding: 1rem;
-                text-align: center;
-                width: 100%;
+                margin: 0.5rem;
             }
 
             .menu-icon {
@@ -99,6 +100,14 @@
             .nav-active {
                 display: flex;
             }
+
+            .Qcard {
+            
+            width: 80%;
+            margin: 1%;
+        }
+
+        
         }
 
         
@@ -278,11 +287,23 @@
 
     <header>
         <h1>Maths Whiz</h1>
-        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+       
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="score.html">score</a>
             <a href="settings.html">Settings</a>
+            <div>
+                <button id="user-menu-button">
+                    <i class='bx bx-user'></i>
+                </button>
+
+                <div id="user-selection-menu" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                    <!-- Active: "bg-gray-100", Not Active: "" -->
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                </div>
+            </div>
         </nav>
         
     </header>
@@ -360,7 +381,7 @@
             <!-- add vector image -->
             <div class="button-container">
                 <button class="button">Retake Quiz</button>
-                <button class="button">Home</button>
+                <button class="button" id="homeButton">Home</button>
             </div>
         </div>
 
@@ -369,15 +390,7 @@
     </main>
 
     <script>
-        toggleTheme()
-
-
-        // Toggle the mobile menu
-        function toggleMenu() {
-            var nav = document.querySelector('.nav-links');
-            nav.classList.toggle('nav-active');
-        }
-
+      
         // Function to toggle between themes
         function toggleTheme() {
             // Check if a theme is already set
