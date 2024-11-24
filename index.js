@@ -7,6 +7,8 @@ var selectedQuestionCount = 10
 var mathQuestionList = []
 var selectedPlayer = localStorage.getItem('SELECTED_PLAYER') || 'GUEST'
 const quizSection = document.getElementById('qiuzSection');
+let timedOptions 
+let questionCountOptions 
 
 $(document).ready(function () {
 
@@ -14,8 +16,8 @@ $(document).ready(function () {
 
 	const modeSelection = document.getElementById('modeSelectionCard');
 	const options = document.getElementById('options');
-	const timedOptions = document.getElementById('timeModeOptions');
-	const questionCountOptions = document.getElementById('questionModeOptions');
+	 timedOptions = document.getElementById('timeModeOptions');
+	 questionCountOptions = document.getElementById('questionModeOptions');
 
 	const timedModeButton = document.getElementById('timeModeBtn');
 	const questionCountModeButton = document.getElementById('questionModeBtn');
@@ -42,36 +44,26 @@ $(document).ready(function () {
 
 	$('#timeModeOptions button').click(function (event) {
 
+
+
 		var timeoutValue = parseInt($(this).text().split(' ')[0])
 		gameSubMode = timeoutValue
-		const originalArray = getRandomQuestionAndAnswer('easy')
-		const rand = getRandomElements(originalArray, timeoutValue * 2)
-		mathQuestionList = rand.map(o => {
-			o.otherOptions = shuffleArray(o.otherOptions)
-			return o;
-		})
-		createQuestionCard(mathQuestionList[currentQuestionIndex])
-		updateQuestionCountProgress()
-		timedOptions.classList.add('hidden');
-		quizSection.classList.remove('hidden');
-		setTimeout(timeoutHandler, timeoutValue * 1000)
+
+		localStorage.setItem('CURRENT_GAME_MODE','timeout')
+		localStorage.setItem("CURRENT_GAME_MODE_OPTION",timeoutValue)
+		startTimeModeGame(timeoutValue)
+
+	
 	})
 
 	$('#questionModeOptions button').click(function (event) {
 		selectedQuestionCount = parseInt($(this).text().split(' ')[0])
 		gameSubMode = selectedQuestionCount
-		const originalArray = getRandomQuestionAndAnswer()
-		const rand = getRandomElements(originalArray, selectedQuestionCount)
-		mathQuestionList = rand.map(o => {
-			o.otherOptions = shuffleArray(o.otherOptions)
-			return o;
-		})
-		mathQuestionListLength = mathQuestionList.length
 
-		createQuestionCard(mathQuestionList[currentQuestionIndex])
-		updateQuestionCountProgress()
-		questionCountOptions.classList.add('hidden');
-		quizSection.classList.remove('hidden');
+		localStorage.setItem('CURRENT_GAME_MODE','question')
+		localStorage.setItem("CURRENT_GAME_MODE_OPTION",gameSubMode)
+		startQuestionModeGame(gameSubMode)
+		
 	})
 
 	$('#nextQuizBtn').click(function (e) {
@@ -128,6 +120,21 @@ $(document).ready(function () {
 	})
 
 	// addUserSwitchEventListener()
+
+	$('#retakeBtn').click(function (e) {
+		
+		$('#resultSection').hide()
+		currentQuestionIndex=0
+		 mathQuestionListLength = 0
+		 correctAnswerCount = 0
+
+		let gameOption = localStorage.getItem("CURRENT_GAME_MODE_OPTION")
+		if (localStorage.getItem('CURRENT_GAME_MODE')=="timeout") {
+			startTimeModeGame(gameOption)	
+		} else {
+			startQuestionModeGame(gameOption)
+		}
+	})
 })
 
 function timeoutHandler() {
@@ -373,3 +380,38 @@ function performPostActions() {
 	}
 
 }
+
+function startTimeModeGame(timeoutValue) {
+	const originalArray = getRandomQuestionAndAnswer('easy')
+
+
+	const rand = getRandomElements(originalArray, timeoutValue * 2)
+	mathQuestionList = rand.map(o => {
+		o.otherOptions = shuffleArray(o.otherOptions)
+		return o;
+	})
+	createQuestionCard(mathQuestionList[currentQuestionIndex])
+	updateQuestionCountProgress()
+	timedOptions.classList.add('hidden');
+	quizSection.classList.remove('hidden');
+	setTimeout(timeoutHandler, timeoutValue * 1000)
+}
+
+
+
+function startQuestionModeGame(gameSubMode) {
+
+	const originalArray = getRandomQuestionAndAnswer()
+		const rand = getRandomElements(originalArray, selectedQuestionCount)
+		mathQuestionList = rand.map(o => {
+			o.otherOptions = shuffleArray(o.otherOptions)
+			return o;
+		})
+		mathQuestionListLength = mathQuestionList.length
+
+		createQuestionCard(mathQuestionList[currentQuestionIndex])
+		updateQuestionCountProgress()
+		questionCountOptions.classList.add('hidden');
+		quizSection.classList.remove('hidden');
+}
+
