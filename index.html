@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Maths Whiz</title>
 
 
@@ -14,14 +14,12 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
-    
+
 
     <link rel="stylesheet" href="mainCss.css">
 
 
     <style>
-      
-
         .Qcard {
             background-color: rgb(146, 238, 250);
             padding: 30px;
@@ -102,15 +100,15 @@
             }
 
             .Qcard {
-            
-            width: 80%;
-            margin: 1%;
+
+                width: 80%;
+                margin: 1%;
+            }
+
+
         }
 
-        
-        }
 
-        
 
         .card {
             background-color: var(--neutral-color);
@@ -245,7 +243,7 @@
             border-radius: 9999px;
             margin-right: 0.25rem;
             padding: 0.25rem;
-             font-size: 0px;
+            font-size: 0px;
 
         }
 
@@ -279,6 +277,38 @@
             opacity: 0.5;
             color: #374151;
         }
+
+
+        #user-selection-menu {
+            position: absolute;
+            right: 0;
+
+            z-index: 10;
+            margin-top: 0.5rem;
+            width: 12rem;
+            transform-origin: top right;
+            border-radius: 0.375rem;
+            background-color: white;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            box-shadow:
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+            outline: none;
+        }
+
+        #user-selection-menu > a {
+            display: block;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+           margin-bottom: 4px;
+           color: white;
+        }
     </style>
 </head>
 
@@ -287,25 +317,30 @@
 
     <header>
         <h1>Maths Whiz</h1>
-       
+
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="score.html">score</a>
+            <a href="score.html">Score</a>
             <a href="settings.html">Settings</a>
             <div>
                 <button id="user-menu-button">
                     <i class='bx bx-user'></i>
                 </button>
 
-                <div id="user-selection-menu" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                <div id="user-selection-menu"
+                   
+                    role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                    <a href="#" role="menuitem" tabindex="-1"
+                        id="user-menu-item-0">Your Profile</a>
+                    <a href="#" role="menuitem" tabindex="-1"
+                        id="user-menu-item-1">Settings</a>
+                    <a href="#"  role="menuitem" tabindex="-1"
+                        id="user-menu-item-2">Sign out</a>
                 </div>
             </div>
         </nav>
-        
+
     </header>
 
 
@@ -380,7 +415,7 @@
             <p id="resultMessage">Great job! You're a true expert. Keep up the good work.</p>
             <!-- add vector image -->
             <div class="button-container">
-                <button class="button">Retake Quiz</button>
+                <button class="button" id="retakeBtn">Retake Quiz</button>
                 <button class="button" id="homeButton">Home</button>
             </div>
         </div>
@@ -390,7 +425,7 @@
     </main>
 
     <script>
-      
+
         // Function to toggle between themes
         function toggleTheme() {
             // Check if a theme is already set
@@ -398,7 +433,7 @@
 
             // Toggle between themes
             document.documentElement.setAttribute('data-theme', currentTheme);
-            
+
         }
 
 

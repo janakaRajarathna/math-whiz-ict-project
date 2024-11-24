@@ -87,6 +87,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    background-image: url(img/lbg.webp);
 }
 
 #user-menu-button{

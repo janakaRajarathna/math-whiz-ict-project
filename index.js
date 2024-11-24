@@ -119,7 +119,7 @@ $(document).ready(function () {
 		window.location.reload()
 	})
 
-	// addUserSwitchEventListener()
+	addUserSwitchEventListener()
 
 	$('#retakeBtn').click(function (e) {
 		
@@ -347,7 +347,7 @@ function addUserSwitchEventListener() {
 
 	const playerNameList = JSON.parse(localStorage.getItem('PLAYER_NAME_LIST')) || {}
 	const userSelectionHtml = Object.values(playerNameList).map((p, index) => {
-		return `<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-${index}">${p.playerName}</a>`
+		return `<a href="#"  role="menuitem" tabindex="-1" id="user-menu-item-${index}">${p.playerName}</a>`
 	}).join('')
 	$('#user-selection-menu').html(userSelectionHtml)
 	$('#user-selection-menu').on('click', 'a', function (event) {

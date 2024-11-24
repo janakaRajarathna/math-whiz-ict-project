@@ -229,77 +229,81 @@
     </style>
 </head>
 
-<body>
+<body style="background-image: url(img/lbg.webp);">
     <header>
         <h1>Maths whiz</h1>
         <nav>
             <a href="index.html">Home</a>
-            <a href="score.html">score</a>
+            <a href="score.html">Score</a>
             <a href="settings.html">Settings</a>
         </nav>
     </header>
 
-    <div class="card">
-        <h2>General Settings</h2>
-        <div class="settings-toggle">
-            <!-- Sound Toggle -->
-            <span>Sound</span>
-            <label class="switch">
-                <input type="checkbox" id="soundToggle">
-                <span class="slider"></span>
-            </label>
-
+        <div class="card">
+            <h2>General Settings</h2>
+            <div class="settings-toggle">
+                <!-- Sound Toggle -->
+                <span>Sound</span>
+                <label class="switch">
+                    <input type="checkbox" id="soundToggle">
+                    <span class="slider"></span>
+                </label>
+    
+            </div>
+    
+    
+            <div class="settings-toggle">
+                <span>Theme</span>
+                <select id="themeDropdown">
+                    <option value="light">Light Theme</option>
+                    <option value="dark">Dark Theme</option>
+                    <option value="default">Default Theme</option>
+                </select>
+            </div>
+    
+    
+    
+        </div>
+    
+        <div class="card">
+            <h2>Add Player</h2>
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName">
+            <button id="add-player-btn">Add</button>
+    
+            <br>
+    
+            <table id="player-table">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Attempt Date</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>janaka</td>
+                        <td>2024-05-19 00:07:55</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:06:37</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>GUEST</td>
+                        <td>2024-08-31 23:08:01</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
+   
 
-        <div class="settings-toggle">
-            <span>Theme</span>
-            <select id="themeDropdown">
-                <option value="light">Light Theme</option>
-                <option value="dark">Dark Theme</option>
-                <option value="default">Default Theme</option>
-            </select>
-        </div>
-
-
-
-    </div>
-
-    <div class="card">
-        <h2>Add Player</h2>
-        <label for="playerName">Player Name</label>
-        <input type="text" id="playerName">
-        <button id="add-player-btn">Add</button>
-
-        <br>
-
-        <table id="player-table">
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Attempt Date</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>janaka</td>
-                    <td>2024-05-19 00:07:55</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>GUEST</td>
-                    <td>2024-08-31 23:06:37</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>GUEST</td>
-                    <td>2024-08-31 23:08:01</td>
-                    <td>1</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
 
 
 
