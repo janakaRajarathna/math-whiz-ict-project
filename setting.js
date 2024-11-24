@@ -1,8 +1,15 @@
-// theme change
+// load defualt sound settings
+const soundToggle = document.getElementById('soundToggle');
+const soundToggleSavedValue = JSON.parse(localStorage.getItem('SOUND_TOGGLE')) || false;
+soundToggle.checked = soundToggleSavedValue
+
+
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
 }
+
+
 
 // Load the theme when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,10 +27,17 @@ document.getElementById("themeDropdown").addEventListener("change", function() {
         applyTheme(selectedValue);
 });
 
+soundToggle.addEventListener('change', function () {
+    localStorage.setItem('SOUND_TOGGLE',soundToggle.checked)
+});
+
 
 //add player
 
 $(document).ready(function () {
+
+ 
+
     // Function to render the player table
     function renderPlayerTable() {
         const playerNameList = JSON.parse(localStorage.getItem('PLAYER_NAME_LIST')) || {};
@@ -69,4 +83,11 @@ $(document).ready(function () {
             alert('Please enter a player name.');
         }
     });
+
+
+    
+
+
 });
+
+

@@ -9,6 +9,7 @@ var selectedPlayer = localStorage.getItem('SELECTED_PLAYER') || 'GUEST'
 const quizSection = document.getElementById('qiuzSection');
 let timedOptions 
 let questionCountOptions 
+const soundToggleSavedValue = JSON.parse(localStorage.getItem('SOUND_TOGGLE')) || false;
 
 $(document).ready(function () {
 
@@ -68,12 +69,6 @@ $(document).ready(function () {
 
 	$('#nextQuizBtn').click(function (e) {
 
-		var passSoundClip = document.getElementById("passSoundClip");
-		var failSoundClip = document.getElementById("failSoundClip");
-		// passSoundClip.pause()
-		// failSoundClip.pause()
-		// failSoundClip.currentTime = 0
-		// passSoundClip.currentTime = 0
 		if (currentQuestionIndex < mathQuestionList.length - 1) {
 			currentQuestionIndex += 1;
 			createQuestionCard(mathQuestionList[currentQuestionIndex])
@@ -89,15 +84,26 @@ $(document).ready(function () {
 	})
 
 	$('#QCARD').on('click', 'button', function (e) {
-
+		
+		
 		if (e.target.innerText == mathQuestionList[currentQuestionIndex].answer) {
 			correctAnswerCount++;
-			var passSoundClip = document.getElementById("passSoundClip");
-			passSoundClip.play();
+			
+			
+
+			if (soundToggleSavedValue == true) {
+				var passSoundClip = document.getElementById("passSoundClip");
+				passSoundClip.play();
+			}
+			
 		}
 		else {
-			var failSoundClip = document.getElementById("failSoundClip");
-			failSoundClip.play();
+			if (soundToggleSavedValue == true) {
+				var failSoundClip = document.getElementById("failSoundClip");
+				failSoundClip.play();
+			}
+
+			
 		}
 		[...document.querySelectorAll('#QCARD button')].map(btn => {
 
