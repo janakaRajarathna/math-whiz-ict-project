@@ -45,15 +45,6 @@ function initialLoad() {
 	renderTable(data2, 'quizMode-highest-score-table')
 }
 function renderTable(data, tableId) {
-	/**
-	 * const game = {
-	 * 		playerName: selectedPlayer,
-	 * 		gameMode: gameMode,
-	 * 		gameSubMode:gameSubMode,
-	 * 		date: new Date(),
-	 * 		score: correctAnswerCount
-	 * 	}
-	 */
 
 	const tbodyHtml = data.map(d => {
 		return ` <tr>
